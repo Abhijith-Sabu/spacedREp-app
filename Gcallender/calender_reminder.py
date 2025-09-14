@@ -2,12 +2,13 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import datetime
 import streamlit as st
-SERVICE_ACCOUNT = st.secrets['google_service_account']
+SERVICE_ACCOUNT = st.secrets["google_service_account"]
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
 credentials = service_account.Credentials.from_service_account_info(
-    SERVICE_ACCOUNT, scopes=SCOPES
+    dict(SERVICE_ACCOUNT), scopes=SCOPES
 )
+
 service = build("calendar", "v3", credentials=credentials)
 
 def shedule_reminders(task_name: str, intervals: list[int]) -> list[str]:

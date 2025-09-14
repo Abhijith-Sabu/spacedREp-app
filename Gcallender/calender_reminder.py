@@ -5,7 +5,7 @@ import streamlit as st
 SERVICE_ACCOUNT = st.secrets['google_service_account']
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
-credentials = service_account.Credentials.from_service_account_file(
+credentials = service_account.Credentials.from_service_account_info(
     SERVICE_ACCOUNT, scopes=SCOPES
 )
 service = build("calendar", "v3", credentials=credentials)

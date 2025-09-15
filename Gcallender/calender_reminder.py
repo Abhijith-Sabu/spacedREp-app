@@ -2,7 +2,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import datetime
 import streamlit as st
-SERVICE_ACCOUNT = st.secrets["google_service_account"]
+SERVICE_ACCOUNT = st.secrets["gcp"]
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
 credentials = service_account.Credentials.from_service_account_info(
